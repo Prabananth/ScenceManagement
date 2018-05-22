@@ -28,7 +28,7 @@ public class BodyProperties : MonoBehaviour
     private StartCircle SC;
     List<GameObject> colls;
 
-    public MapJoins MJ;
+    //public MapJoins MJ;
 
     // Use this for initialization
     void Start()
@@ -282,10 +282,10 @@ public class BodyProperties : MonoBehaviour
         //SD.acc = GameObject.Find("Text 2");
         //Text abc = SD.acc.GetComponent<Text>();
         GD.accuracy = (SD.Noofcollisions / SD.totalcollisions) * 100;
-        MJ.GameMainScreen.Accuracy = (int) GD.accuracy;
-        MJ.isAccuracy = true;
-        MJ.isPower = false;
-        MJ.Map();
+        //MJ.GameMainScreen.Accuracy = (int) GD.accuracy;
+        //MJ.isAccuracy = true;
+        //MJ.isPower = false;
+        //MJ.Map();
         return;
         if(GD.accuracy > 50 && GD.FrameTime < (GD.MaxFrameTime + (GD.MaxFrameTime * 50 / 100)))
         {

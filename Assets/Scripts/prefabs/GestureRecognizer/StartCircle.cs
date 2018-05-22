@@ -21,7 +21,8 @@ public class StartCircle : MonoBehaviour {
     float TimeCount = 0f;
     public GeneralData GD;
 
-    public MapJoins MJ;
+    //public MapJoins MJ;
+    public T_Pose TP;
 
     private Dictionary<int, Kinect.JointType> _JointMap = new Dictionary<int, Kinect.JointType>()
     {
@@ -120,8 +121,9 @@ public class StartCircle : MonoBehaviour {
         if (other.CompareTag(TagName))
         {
             CanStart = true;
-            MJ.CanWork = true;
-            MJ.StartCoroutine("StartTimer");
+            GUIData.Current.CanWork = true;
+            //MJ.StartCoroutine("StartTimer");
+            TP.TPosition();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -129,7 +131,7 @@ public class StartCircle : MonoBehaviour {
         if (other.CompareTag(TagName))
         {
             CanStart = false;
-            MJ.CanWork = false;
+            GUIData.Current.CanWork = false;
         }
     }
     private void OnTriggerStay(Collider other)
@@ -137,7 +139,8 @@ public class StartCircle : MonoBehaviour {
         if (other.CompareTag(TagName) && !CanStart)
         {
             CanStart = true;
-            MJ.CanWork = true;
+            GUIData.Current.CanWork = true;
+            TP.TPosition();
         }
     }
 

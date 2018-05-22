@@ -15,7 +15,6 @@ public class GUIScript : MonoBehaviour {
     private GameObject loginUI, inter, skel;
     public NetManager NetworkManager;
     public GameObject GUI;
-    public GUIData GUIData;
     //public MapJoins MJ;
     //public T_Pose TP;
 	public static GUIScript path = new GUIScript ();
@@ -115,14 +114,14 @@ public class GUIScript : MonoBehaviour {
 			{
 				currExercise = "HighKnees";
 				Debug.Log (currExercise);
-                GUIData.selectedExercise.Add(currExercise, 0);
-                GUIData.ExerciseList.Add(currExercise);
+                GUIData.Current.selectedExercise.Add(currExercise, 0);
+                GUIData.Current.ExerciseList.Add(currExercise);
 
 				int rep = System.Convert.ToInt32(ip.text);
-                GUIData.selectedExercise[currExercise] = rep;
+                GUIData.Current.selectedExercise[currExercise] = rep;
                 Debug.Log(rep);
 
-				foreach (KeyValuePair<string, int>  k in GUIData.selectedExercise)
+				foreach (KeyValuePair<string, int>  k in GUIData.Current.selectedExercise)
 				{
 					// Debug.Log(k.Key+":"+k.Value);
 				}
@@ -133,14 +132,14 @@ public class GUIScript : MonoBehaviour {
 			{
 				Debug.Log (ip.name);
 				currExercise = "Squat";
-                GUIData.selectedExercise.Add(currExercise, 0);
-                GUIData.ExerciseList.Add(currExercise);
+                GUIData.Current.selectedExercise.Add(currExercise, 0);
+                GUIData.Current.ExerciseList.Add(currExercise);
 
 				int rep = System.Convert.ToInt32(ip.text);
-                GUIData.selectedExercise[currExercise] = rep;
+                GUIData.Current.selectedExercise[currExercise] = rep;
                 Debug.Log(rep);
 
-                foreach (KeyValuePair<string, int>  k in GUIData.selectedExercise)
+                foreach (KeyValuePair<string, int>  k in GUIData.Current.selectedExercise)
 				{
 					// Debug.Log(k.Key+":"+k.Value);
 				}
@@ -150,14 +149,14 @@ public class GUIScript : MonoBehaviour {
 			{
 				Debug.Log (ip.name);
 				currExercise = "JumpingJack";
-                GUIData.selectedExercise.Add(currExercise, 0);
-                GUIData.ExerciseList.Add(currExercise);
+                GUIData.Current.selectedExercise.Add(currExercise, 0);
+                GUIData.Current.ExerciseList.Add(currExercise);
 
 				int rep = System.Convert.ToInt32(ip.text);
-                GUIData.selectedExercise[currExercise] = rep;
+                GUIData.Current.selectedExercise[currExercise] = rep;
                 Debug.Log(rep);
 
-                foreach (KeyValuePair<string, int>  k in GUIData.selectedExercise)
+                foreach (KeyValuePair<string, int>  k in GUIData.Current.selectedExercise)
 				{
 					// Debug.Log(k.Key+":"+k.Value);
 				}
@@ -166,14 +165,14 @@ public class GUIScript : MonoBehaviour {
 			{
 				Debug.Log (ip.name);
 				currExercise = "LeftLunges";
-                GUIData.selectedExercise.Add(currExercise, 0);
-                GUIData.ExerciseList.Add(currExercise);
+                GUIData.Current.selectedExercise.Add(currExercise, 0);
+                GUIData.Current.ExerciseList.Add(currExercise);
 
 				int rep = System.Convert.ToInt32(ip.text);
-                GUIData.selectedExercise[currExercise] = rep;
+                GUIData.Current.selectedExercise[currExercise] = rep;
                 Debug.Log(rep);
 
-                foreach (KeyValuePair<string, int>  k in GUIData.selectedExercise)
+                foreach (KeyValuePair<string, int>  k in GUIData.Current.selectedExercise)
 				{
 					// Debug.Log(k.Key+":"+k.Value);
 				}
@@ -182,14 +181,14 @@ public class GUIScript : MonoBehaviour {
 			{
 				Debug.Log ("RLF : "+ip.name);
 				currExercise = "RightLunges";
-                GUIData.selectedExercise.Add(currExercise, 0);
-                GUIData.ExerciseList.Add(currExercise);
+                GUIData.Current.selectedExercise.Add(currExercise, 0);
+                GUIData.Current.ExerciseList.Add(currExercise);
 
 				int rep = System.Convert.ToInt32(ip.text);
-                GUIData.selectedExercise[currExercise] = rep;
+                GUIData.Current.selectedExercise[currExercise] = rep;
                 Debug.Log(rep);
 
-                foreach (KeyValuePair<string, int>  k in GUIData.selectedExercise)
+                foreach (KeyValuePair<string, int>  k in GUIData.Current.selectedExercise)
 				{
 					// Debug.Log(k.Key+":"+k.Value);
 				}
@@ -218,29 +217,29 @@ public class GUIScript : MonoBehaviour {
             b.image.color = Color.green;
 			Debug.Log (b.name);
             currExercise = b.name;
-            GUIData.selectedExercise.Add(currExercise, 0);
+            GUIData.Current.selectedExercise.Add(currExercise, 0);
             //selectedExercise.Add(currExercise, 0);
-            GUIData.ExerciseList.Add(currExercise);
+            GUIData.Current.ExerciseList.Add(currExercise);
         }
     }
 
     public void addJoint(Button b)
     {
         string jointName = b.name;
-        if (GUIData.selectedJoints.Contains(jointName))
+        if (GUIData.Current.selectedJoints.Contains(jointName))
         //if (selectedJoints.Contains(jointName))
         {
-            GUIData.selectedJoints.Remove(jointName);
+            GUIData.Current.selectedJoints.Remove(jointName);
             //selectedJoints.Remove(jointName);
             b.image.color = Color.white;
         }
         else
         {
-            GUIData.selectedJoints.Add(jointName);
+            GUIData.Current.selectedJoints.Add(jointName);
             //selectedJoints.Add(jointName);
             b.image.color = Color.green;
         }
-        foreach (string s in GUIData.selectedJoints)
+        foreach (string s in GUIData.Current.selectedJoints)
         //foreach (string s in selectedJoints)
         {
             //Debug.Log(s);
@@ -249,14 +248,14 @@ public class GUIScript : MonoBehaviour {
 
     public void finish(string scenename)
     {
-		Debug.Log (GUIData.selectedExercise);
+		Debug.Log (GUIData.Current.selectedExercise);
         InputField br = GameObject.Find("BreakField").GetComponent<InputField>();
         InputField set = GameObject.Find("SetsField").GetComponent<InputField>();
-        if (GUIData.selectedJoints.Count == 0)
+        if (GUIData.Current.selectedJoints.Count == 0)
         {
             //EditorUtility.DisplayDialog("Error", "You have not selected any joints.", "Okay");
         }
-        else if (GUIData.selectedExercise.Count == 0) {
+        else if (GUIData.Current.selectedExercise.Count == 0) {
             //EditorUtility.DisplayDialog("Error", "You have not selected any exercise.", "Okay");
         }
         else if (br.text == "") {
@@ -267,8 +266,8 @@ public class GUIScript : MonoBehaviour {
         }
         else
         {
-            GUIData.breakTime = Convert.ToInt32(br.text);
-            GUIData.sets = Convert.ToInt32(set.text);
+            GUIData.Current.breakTime = Convert.ToInt32(br.text);
+            GUIData.Current.sets = Convert.ToInt32(set.text);
             inter.SetActive(false);
             skel.SetActive(false);
             //EditorUtility.DisplayDialog("Error", "Details Updated.", "Okay");

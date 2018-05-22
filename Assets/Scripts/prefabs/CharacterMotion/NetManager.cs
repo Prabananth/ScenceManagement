@@ -9,7 +9,7 @@ public class NetManager : NetworkManager {
 	void Start () {
         dontDestroyOnLoad = false;
         autoCreatePlayer = false;
-        networkAddress = "192.168.0.107";
+        networkAddress = "192.168.0.105";
         networkPort = 7777;
         StartS();
 
