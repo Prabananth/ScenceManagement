@@ -20,8 +20,8 @@ public class GUIScript : MonoBehaviour {
 	public static GUIScript path = new GUIScript ();
 	public string CreateFolder;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         loginUI = GameObject.Find("Login");
         inter = GameObject.Find("Interface");
         skel = GameObject.Find("Skeleton");
@@ -276,7 +276,6 @@ public class GUIScript : MonoBehaviour {
             //MJ.Initialized = true;
             //MJ.Map();
             //TP.TPosition();
-            Debug.Log(scenename);
             SceneManager.LoadScene(scenename);
             GUI.SetActive(false);
         }

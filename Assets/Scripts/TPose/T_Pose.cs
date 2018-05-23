@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 public class T_Pose : MonoBehaviour {
     private GameObject TPOSE;
-    public MapJoins MJ;
+    //public MapJoins MJ;
     void Start()
     {
         TPOSE = GameObject.Find("TPose");
@@ -17,11 +17,10 @@ public class T_Pose : MonoBehaviour {
         if (TPose_Colliders.HandLeft == true && TPose_Colliders.HandRight == true && TPose_Colliders.LeftElbow == true && TPose_Colliders.RightElbow == true)
         {
             SceneManager.LoadScene("MainGame");
-            MJ.StartCoroutine("StartTimer");
-            MJ.CanWork = true;
+            //MJ.StartCoroutine("StartTimer");
             TPOSE.SetActive(false);
-            MJ.Initialized = true;
-            MJ.Map();
+            GUIData.Current.Initialized = true;
+           // MJ.Map();
         }
     }
 }

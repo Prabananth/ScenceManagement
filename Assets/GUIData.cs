@@ -11,4 +11,5 @@ public class GUIData : MonoBehaviour
     public List<string> selectedJoints = new List<string>();
     public int breakTime, sets;
     public bool CanWork = false;
+    public bool Initialized = false;
 }

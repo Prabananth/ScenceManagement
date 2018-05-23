@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141030886}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27a43425c5551fc4a91d8180f21ffafd, type: 3}
   m_Name: 
@@ -545,6 +545,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1198211638}
+  - component: {fileID: 1198211639}
   - component: {fileID: 1198211637}
   - component: {fileID: 1198211636}
   m_Layer: 0
@@ -593,7 +594,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1198211635}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d3152e54b3677d48a40a3bdf370dba8, type: 3}
   m_Name: 
@@ -602,6 +603,7 @@ MonoBehaviour:
   BodySourceManager: {fileID: 1141030886}
   ground: {fileID: 1693910629}
   startCircle: {fileID: 2086007077}
+  MJ: {fileID: 0}
   count: 0
 --- !u!4 &1198211638
 Transform:
@@ -617,6 +619,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1198211639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1198211635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f48585d1926d8943a33f29dc0b022a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickup: {fileID: 2100000, guid: c93f6f71482ede9469e5f9e9a11c9112, type: 2}
+  BodySourceManager: {fileID: 1141030886}
+  ground: {fileID: 1693910629}
+  startCircle: {fileID: 2086007077}
+  count: 0
 --- !u!1 &1225285525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,7 +1155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b5d4ba5aac194b4297dd16b71382411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MJ: {fileID: 0}
 --- !u!4 &1712770032
 Transform:
   m_ObjectHideFlags: 0
@@ -1330,6 +1347,7 @@ GameObject:
   - component: {fileID: 2086007080}
   - component: {fileID: 2086007079}
   - component: {fileID: 2086007078}
+  - component: {fileID: 2086007084}
   - component: {fileID: 2086007083}
   m_Layer: 0
   m_Name: StartCircle
@@ -1345,12 +1363,13 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2086007077}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db75458c6f1352b4a9e4f26c027267e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GroundPlane: {fileID: 1693910630}
+  MJ: {fileID: 0}
 --- !u!23 &2086007079
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1438,3 +1457,17 @@ MonoBehaviour:
   breakTime: 0
   sets: 0
   CanWork: 0
+  Initialized: 0
+--- !u!114 &2086007084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086007077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd7e30fc95fa284f8c2275e1376b7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GroundPlane: {fileID: 1693910630}
+  TP: {fileID: 1712770031}

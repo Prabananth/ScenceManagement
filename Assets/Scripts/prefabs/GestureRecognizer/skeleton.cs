@@ -15,7 +15,7 @@ public class skeleton : NetworkBehaviour
     public static float YHumanScalingFactor = 1;
     public GameObject startCircle;
 
-    //public MapJoins MJ;
+    public MapJoins MJ;
     public Kinect.Vector4 floorClipPlane;
     public int count = 0;
 
@@ -172,7 +172,7 @@ public class skeleton : NetworkBehaviour
         body.tag = "SkeletonBody";
         BodyProperties BP = body.AddComponent<BodyProperties>();
         BP.ParentCircle = startCircle;
-        //BP.MJ = MJ;
+        BP.MJ = MJ;
         Rigidbody rb = body.AddComponent<Rigidbody>();
         CapsuleCollider cc = body.AddComponent<CapsuleCollider>();
         cc.isTrigger = true;
