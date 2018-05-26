@@ -2,10 +2,16 @@
 using UnityEngine.SceneManagement;
 public class T_Pose : MonoBehaviour {
     private GameObject TPOSE;
+    public GameObject GD;
+    public GameObject SKTN;
+    public GameObject IDSWT;
     //public MapJoins MJ;
     void Start()
     {
-        TPOSE = GameObject.Find("TPose");
+        TPOSE = GameObject.Find("TPose");   
+        GD.SetActive(true);
+        SKTN.SetActive(true);
+        IDSWT.SetActive(true);
     }
 
     // Update is called once per frame

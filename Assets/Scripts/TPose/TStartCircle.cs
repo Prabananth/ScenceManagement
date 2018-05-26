@@ -60,7 +60,6 @@ public class TStartCircle : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Debug.Log("Circle");
         InitialPosition = transform.position;
         InitialRotation = transform.rotation;
         Debug.Log(InitialPosition + "s" + InitialRotation);

@@ -5,3 +5,9 @@ sceneSetups:
 - path: Assets/SceneSeparation/GUI.unity
   isLoaded: 1
   isActive: 1
+- path: Assets/SceneSeparation/TPoseScene.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/SceneSeparation/MainScene.unity
+  isLoaded: 0
+  isActive: 0

@@ -19,11 +19,11 @@ public class MapJoins : NetworkBehaviour {
     private int gestureCount,punchCount;
     private string GestureName;
 
-    public static Dictionary<string, int> selectedExercise;
-    public static List<string> ExerciseList;
-    public static List<string> selectedJoints;
+    //public static Dictionary<string, int> selectedExercise;
+    //public static List<string> ExerciseList;
+    //public static List<string> selectedJoints;
 
-    public static int breakTime, sets;
+    //public static int breakTime, sets;
 
     public bool isPower, isAccuracy;
 
@@ -69,9 +69,9 @@ public class MapJoins : NetworkBehaviour {
         isAccuracy = false;
         PunchBags = GameObject.FindGameObjectsWithTag("PunchBags");
         RandomFirst();
-        selectedExercise = new Dictionary<string, int>();
-        selectedJoints = new List<string>();
-        ExerciseList = new List<string>();
+        //selectedExercise = new Dictionary<string, int>();
+        //selectedJoints = new List<string>();
+        //ExerciseList = new List<string>();
     }
 	
 	// Update is called once per frame
@@ -178,13 +178,13 @@ public class MapJoins : NetworkBehaviour {
                 case 1 :
                     CurrentJoint = null;
                     CurrentPunchBag = null;
-                    int ExerciseNo = Random.Range(0, ExerciseList.Count);
+                    int ExerciseNo = Random.Range(0, GUIData.Current.ExerciseList.Count);
                     Debug.Log(ExerciseNo);
-                    GestureName = ExerciseList[ExerciseNo];
+                    GestureName = GUIData.Current.ExerciseList[ExerciseNo];
                     Debug.Log(GestureName);
-                    gestureCount = selectedExercise[GestureName];
-                    ExerciseList.Remove(GestureName);
-                    selectedExercise.Remove(GestureName);
+                    gestureCount = GUIData.Current.selectedExercise[GestureName];
+                    GUIData.Current.ExerciseList.Remove(GestureName);
+                    GUIData.Current.selectedExercise.Remove(GestureName);
                     GameMainScreen.Exercise = ExercisesMap[GestureName.ToLower()];
                     DoGesture(GestureName);
                     break;
@@ -255,7 +255,7 @@ public class MapJoins : NetworkBehaviour {
             BP.updateGesture("None");
         }
 
-        CurrentJoint = JointMap[selectedJoints[Random.Range(0, selectedJoints.Count)]];
+        CurrentJoint = JointMap[GUIData.Current.selectedJoints[Random.Range(0, GUIData.Current.selectedJoints.Count)]];
         GameObject[] CurrentPunchBagSet = JointPunchBagMap[CurrentJoint];
         CurrentPunchBag = CurrentPunchBagSet[Random.Range(0,CurrentPunchBagSet.Length)];
         Render(CurrentJoint, new Color32(38, 23, 223, 255));
